@@ -94,7 +94,8 @@ func GetFileBySha1(c *gin.Context) {
 func FileQueryHandler(c *gin.Context) {
 	limitCnt, _ := strconv.Atoi(c.Param("limit"))
 
-	fMetaArray := meta.GetLastFileMetas(limitCnt)
+	//fMetaArray := meta.GetLastFileMetas(limitCnt)
+	fMetaArray, _ := meta.GetLastFileMetaDB(limitCnt)
 	c.JSON(http.StatusOK, gin.H{
 		"Code": common.StatusOK,
 		"Msg":  "okk",
